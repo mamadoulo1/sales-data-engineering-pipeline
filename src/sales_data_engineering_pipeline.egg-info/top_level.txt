@@ -1,4 +1,0 @@
-extract
-load
-pipeline
-transform
