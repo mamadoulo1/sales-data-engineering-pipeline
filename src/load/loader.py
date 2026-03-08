@@ -49,10 +49,13 @@ class Loader:
     def _write_db(self, df: pd.DataFrame, name: str) -> None:
         db_path = self.load_cfg["db_path"]
         engine = create_engine(f"sqlite:///{db_path}")
-        df_db = df.copy()
-        # SQLite doesn't support Period dtype — convert to str
-        period_cols = [col for col in df_db.columns if hasattr(df_db[col].dtype, "freq")]
-        for col in period_cols:
-            df_db[col] = df_db[col].astype(str)
-        df_db.to_sql(name, engine, if_exists="replace", index=False)
-        logger.info(f"  Loaded table '{name}' into SQLite ({db_path})")
+        try:
+            df_db = df.copy()
+            # SQLite doesn't support Period dtype — convert to str
+            period_cols = [col for col in df_db.columns if hasattr(df_db[col].dtype, "freq")]
+            for col in period_cols:
+                df_db[col] = df_db[col].astype(str)
+            df_db.to_sql(name, engine, if_exists="replace", index=False)
+            logger.info(f"  Loaded table '{name}' into SQLite ({db_path})")
+        finally:
+            engine.dispose()
