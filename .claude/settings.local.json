@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(head -5 data/raw/*.csv)"
+    ]
+  }
+}

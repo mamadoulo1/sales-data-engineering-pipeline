@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sales-data-engineering-pipeline"
+version = "1.0.0"
+description = "Sales Data Engineering Pipeline"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.2.2",
+    "numpy>=1.26.4",
+    "pyarrow>=16.1.0",
+    "pyyaml>=6.0.1",
+    "sqlalchemy>=2.0.30",
+    "loguru>=0.7.2",
+]
+
+[project.scripts]
+sales-pipeline = "pipeline:main"
+
+[tool.setuptools]
+packages = ["extract", "transform", "load"]
+py-modules = ["pipeline"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

@@ -1,0 +1,30 @@
+pipeline:
+  name: sales_pipeline
+  version: "1.0"
+
+paths:
+  raw_data: data/raw
+  processed_data: data/processed
+  output_data: data/output
+
+extract:
+  orders_file: orders.csv
+  customers_file: customers.csv
+  products_file: products.csv
+  encoding: utf-8
+  delimiter: ","
+
+transform:
+  drop_duplicates: true
+  fill_missing_quantity: 1
+  valid_statuses:
+    - pending
+    - shipped
+    - delivered
+    - cancelled
+  revenue_margin_pct: 0.30
+
+load:
+  output_format: parquet        # parquet | csv
+  db_path: data/output/sales.db
+  parquet_compression: snappy

@@ -1,0 +1,13 @@
+customer_id,first_name,last_name,email,city,country,signup_date
+C001,Alice,Martin,alice.martin@email.com,Paris,France,2022-01-15
+C002,Bob,Dupont,bob.dupont@email.com,Lyon,France,2022-03-22
+C003,Clara,Smith,clara.smith@email.com,London,UK,2022-05-10
+C004,David,Johnson,david.j@email.com,New York,USA,2022-07-08
+C005,Eva,Müller,eva.muller@email.com,Berlin,Germany,2022-09-30
+C006,Frank,Rossi,frank.rossi@email.com,Rome,Italy,2023-01-12
+C007,Grace,Lee,grace.lee@email.com,Seoul,South Korea,2023-03-05
+C008,Hugo,Garcia,hugo.garcia@email.com,Madrid,Spain,2023-05-18
+C009,Iris,Tanaka,iris.tanaka@email.com,Tokyo,Japan,2023-07-22
+C010,Jack,Brown,jack.brown@email.com,Sydney,Australia,2023-10-01
+C011,Karen,White,,Chicago,USA,2023-11-14
+C012,Leo,Fernandez,leo.f@email.com,Sao Paulo,Brazil,2024-01-09

@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+src/pipeline.py
+src/extract/__init__.py
+src/extract/extractor.py
+src/load/__init__.py
+src/load/loader.py
+src/sales_data_engineering_pipeline.egg-info/PKG-INFO
+src/sales_data_engineering_pipeline.egg-info/SOURCES.txt
+src/sales_data_engineering_pipeline.egg-info/dependency_links.txt
+src/sales_data_engineering_pipeline.egg-info/requires.txt
+src/sales_data_engineering_pipeline.egg-info/top_level.txt
+src/transform/__init__.py
+src/transform/transformer.py
+tests/test_extractor.py
+tests/test_loader.py
+tests/test_transformer.py
