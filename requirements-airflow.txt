@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------
+# Airflow + project dependencies (for local / CI installation)
+# Pin Airflow with the constraint file for reproducible builds.
+#
+# Install with:
+#   pip install apache-airflow==2.9.3 \
+#     --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.9.3/constraints-3.11.txt"
+#   pip install -r requirements-airflow.txt
+# ---------------------------------------------------------------
+
+apache-airflow==2.9.3
+
+# Project dependencies (same as requirements.txt)
+pandas==2.2.2
+numpy==1.26.4
+pyarrow==16.1.0
+pyyaml==6.0.1
+sqlalchemy==2.0.30
+loguru==0.7.2

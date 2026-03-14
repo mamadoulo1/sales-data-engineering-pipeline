@@ -1,0 +1,89 @@
+[2026-03-10T17:08:50.384+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-10T17:08:50.441+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sales_data_pipeline.extract scheduled__2026-03-09T00:00:00+00:00 [queued]>
+[2026-03-10T17:08:50.451+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sales_data_pipeline.extract scheduled__2026-03-09T00:00:00+00:00 [queued]>
+[2026-03-10T17:08:50.452+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-03-10T17:08:50.466+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract> on 2026-03-09 00:00:00+00:00
+[2026-03-10T17:08:50.473+0000] {standard_task_runner.py:64} INFO - Started process 251 to run task
+[2026-03-10T17:08:50.477+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sales_data_pipeline', 'extract', 'scheduled__2026-03-09T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/sales_pipeline_dag.py', '--cfg-path', '/tmp/tmpb0yumvbi']
+[2026-03-10T17:08:50.482+0000] {standard_task_runner.py:91} INFO - Job 2: Subtask extract
+[2026-03-10T17:08:50.564+0000] {task_command.py:426} INFO - Running <TaskInstance: sales_data_pipeline.extract scheduled__2026-03-09T00:00:00+00:00 [running]> on host a9a08c538d08
+[2026-03-10T17:08:50.912+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-engineering' AIRFLOW_CTX_DAG_ID='sales_data_pipeline' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2026-03-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-09T00:00:00+00:00'
+[2026-03-10T17:08:50.913+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-10T17:08:52.084+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-10T17:08:52.085+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/sales_pipeline_dag.py", line 84, in extract_task
+    from extract.extractor import Extractor
+  File "/opt/airflow/src/extract/extractor.py", line 7, in <module>
+    from loguru import logger
+ModuleNotFoundError: No module named 'loguru'
+[2026-03-10T17:08:52.104+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=sales_data_pipeline, task_id=extract, run_id=scheduled__2026-03-09T00:00:00+00:00, execution_date=20260309T000000, start_date=20260310T170850, end_date=20260310T170852
+[2026-03-10T17:08:52.118+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 2 for task extract (No module named 'loguru'; 251)
+[2026-03-10T17:08:52.140+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-03-10T17:08:52.165+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-10T17:08:52.167+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-03-10T17:12:54.182+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-10T17:12:54.221+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sales_data_pipeline.extract scheduled__2026-03-09T00:00:00+00:00 [queued]>
+[2026-03-10T17:12:54.229+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sales_data_pipeline.extract scheduled__2026-03-09T00:00:00+00:00 [queued]>
+[2026-03-10T17:12:54.230+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-03-10T17:12:54.243+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): extract> on 2026-03-09 00:00:00+00:00
+[2026-03-10T17:12:54.248+0000] {standard_task_runner.py:64} INFO - Started process 336 to run task
+[2026-03-10T17:12:54.251+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'sales_data_pipeline', 'extract', 'scheduled__2026-03-09T00:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/sales_pipeline_dag.py', '--cfg-path', '/tmp/tmpur_o7rce']
+[2026-03-10T17:12:54.253+0000] {standard_task_runner.py:91} INFO - Job 3: Subtask extract
+[2026-03-10T17:12:54.310+0000] {task_command.py:426} INFO - Running <TaskInstance: sales_data_pipeline.extract scheduled__2026-03-09T00:00:00+00:00 [running]> on host a9a08c538d08
+[2026-03-10T17:12:54.576+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-engineering' AIRFLOW_CTX_DAG_ID='sales_data_pipeline' AIRFLOW_CTX_TASK_ID='extract' AIRFLOW_CTX_EXECUTION_DATE='2026-03-09T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-09T00:00:00+00:00'
+[2026-03-10T17:12:54.577+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-10T17:12:54.946+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-10T17:12:54.947+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/sales_pipeline_dag.py", line 84, in extract_task
+    from extract.extractor import Extractor
+  File "/opt/airflow/src/extract/extractor.py", line 7, in <module>
+    from loguru import logger
+ModuleNotFoundError: No module named 'loguru'
+[2026-03-10T17:12:54.968+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=sales_data_pipeline, task_id=extract, run_id=scheduled__2026-03-09T00:00:00+00:00, execution_date=20260309T000000, start_date=20260310T171254, end_date=20260310T171254
+[2026-03-10T17:12:54.987+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 3 for task extract (No module named 'loguru'; 336)
+[2026-03-10T17:12:55.026+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-03-10T17:12:55.038+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
